@@ -1,0 +1,66 @@
+--------------------------------------------------------------------------------------
+Timing Analyzer Summary
+--------------------------------------------------------------------------------------
+
+Type           : Worst-case tsu
+Slack          : N/A
+Required Time  : None
+Actual Time    : 6.822 ns
+From           : nPX_CS5
+To             : DOT_ADDRESS[5]~reg0
+From Clock     : --
+To Clock       : nPX_PWE
+Failed Paths   : 0
+
+Type           : Worst-case tco
+Slack          : N/A
+Required Time  : None
+Actual Time    : 15.334 ns
+From           : Bbar~reg0
+To             : Bbar
+From Clock     : nPX_PWE
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case tpd
+Slack          : N/A
+Required Time  : None
+Actual Time    : 18.022 ns
+From           : nPX_CS5
+To             : CX_D[4]
+From Clock     : --
+To Clock       : --
+Failed Paths   : 0
+
+Type           : Worst-case th
+Slack          : N/A
+Required Time  : None
+Actual Time    : 0.423 ns
+From           : CX_D[6]
+To             : LCD_DATA[6]~reg0
+From Clock     : --
+To Clock       : nPX_PWE
+Failed Paths   : 0
+
+Type           : Clock Setup: 'nPX_PWE'
+Slack          : N/A
+Required Time  : None
+Actual Time    : Restricted to 275.03 MHz ( period = 3.636 ns )
+From           : LCD_RS~reg0
+To             : LCD_DATA[5]~reg0
+From Clock     : nPX_PWE
+To Clock       : nPX_PWE
+Failed Paths   : 0
+
+Type           : Total number of failed paths
+Slack          : 
+Required Time  : 
+Actual Time    : 
+From           : 
+To             : 
+From Clock     : 
+To Clock       : 
+Failed Paths   : 0
+
+--------------------------------------------------------------------------------------
+

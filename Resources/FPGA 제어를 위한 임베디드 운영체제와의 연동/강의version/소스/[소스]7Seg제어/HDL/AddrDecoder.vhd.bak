@@ -1,0 +1,163 @@
+-- ************************************************************************
+-- EMPOS II Cyclone FPGA Module
+-- ************************************************************************
+
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY AddrDecoder IS
+	PORT(
+		-- EMPOS II CONNECTOR 
+		-- input data pin
+		CX_A						: IN STD_LOGIC_vector(23 downto 20);
+		nPX_CS5						: IN STD_LOGIC;
+		CX_D						: INOUT STD_LOGIC_VECTOR(15 downto 0);
+		-- Ignore data pin
+		nPX_PWE						: IN std_logic; --, nCX_OE, nPX_POE	: IN STD_LOGIC;
+		nRESET						: IN std_logic;
+		-- EMPOS II FPGA MODULE Application
+		-- 16 x 2 Text LCD Port
+		LCD_RS, LCD_RW, LCD_E		: OUT STD_LOGIC;
+		LCD_DATA					: OUT STD_LOGIC_VECTOR(7 downto 0);
+		-- 6-Digit 7-Segment Port
+		SEG_DATA					: OUT STD_LOGIC_VECTOR(7 downto 0);
+		SEG_COM						: OUT sTD_LOGIC_VECTOR(5 downto 0);
+		-- 4 x 4 Push Switch Port
+		PUSH_SCAN					: OUT STD_LOGIC_VECTOR(3 downto 0);
+		PUSH_DATA					: IN std_logic_vector(3 downto 0);
+		-- 8-Bits LED Port
+		LED							: OUT STD_LOGIC_VECTOR(7 downto 0);
+		-- Dip switch Port
+		DIP_sw_a					: IN std_logic_vector(7 downto 0);
+		-- 7 x 5 Dot Matrix Port
+		DOT_ADDRESS					: OUT std_logic_vector(9 downto 0);
+		DOT_DATA					: OUT std_logic_vector(6 downto 0);
+		-- Step Motor Port
+		A, B, Abar, Bbar			: OUT std_logic;	--CCD_D[14], CCD_D[13], CCD_D[12], CCD_D[11]
+		-- USB Chip Select
+		USB_CS						: OUT std_logic;
+		-- External User Port to Conn.		
+		
+		-- Fixed Data
+		nRAM_CS						: OUT std_logic;
+		nRAM_OE						: OUT std_logic;
+		nRAM_WE						: OUT std_logic;
+		-- ETC
+		nCX_WE						: OUT std_logic
+	);
+END AddrDecoder;
+
+ARCHITECTURE ARC OF AddrDecoder IS
+
+SIGNAL CS			: STD_LOGIC_VECTOR(15 downto 0);
+constant USB		: std_logic_vector(15 downto 0) := X"fffe"; -- 0001
+constant SRAM_1		: std_logic_vector(15 downto 0) := X"fffd"; -- 0002
+constant SRAM_2		: std_logic_vector(15 downto 0) := X"fffb"; -- 0004
+constant SEG		: std_logic_vector(15 downto 0) := X"fff7"; --0008
+constant DIPSW		: std_logic_vector(15 downto 0) := X"ffef"; --0010
+constant KeyPada	: std_logic_vector(15 downto 0) := X"ffdf"; --0020
+constant KeyPadb	: std_logic_vector(15 downto 0) := X"ffbf"; --0040 
+constant LED_T		: std_logic_vector(15 downto 0) := X"ff7f"; --0080 
+constant LCD		: std_logic_vector(15 downto 0) := X"feff"; --0100
+constant DOT_D		: std_logic_vector(15 downto 0) := X"fdff"; --0200
+constant DOT_C		: std_logic_vector(15 downto 0) := X"fbff"; --0400
+constant STEP_MOTOR	: std_logic_vector(15 downto 0) := X"f7ff"; --0800 
+constant USER_CS1	: std_logic_vector(15 downto 0) := X"efff"; --1000
+constant USER_CS2	: std_logic_vector(15 downto 0) := X"dfff"; --2000
+constant USER_CS3	: std_logic_vector(15 downto 0) := X"bfff"; --4000
+constant USER_CS4	: std_logic_vector(15 downto 0) := X"7fff";	--8000
+signal LED_CS : std_logic;
+signal SEG_CS : std_logic;
+signal DIPSW_CS : std_logic;
+signal LCD_CS : std_logic;
+
+
+BEGIN
+
+	CS <= 	USB 		WHEN CX_A(23 DOWNTO 20) = "0000" and nPX_CS5 = '0' ELSE		-- USB
+			SRAM_1 		WHEN CX_A(23 DOWNTO 20) = "0001" and nPX_CS5 = '0' ELSE		-- Camera SRAM/RD complete
+			SRAM_2 		WHEN CX_A(23 DOWNTO 20) = "0010" and nPX_CS5 = '0' ELSE		-- Camera SRAM/page
+			SEG 		WHEN CX_A(23 DOWNTO 20) = "0011" and nPX_CS5 = '0' ELSE		-- 7-Segment
+			DIPSW	 	WHEN CX_A(23 DOWNTO 20) = "0100" and nPX_CS5 = '0' ELSE		-- DIP S/W
+			KeyPada 	WHEN CX_A(23 DOWNTO 20) = "0101" and nPX_CS5 = '0' ELSE		-- Key pad write
+			Keypadb		WHEN CX_A(23 DOWNTO 20) = "0110" and nPX_CS5 = '0' ELSE		-- Key pad read
+			LED_T		WHEN CX_A(23 DOWNTO 20) = "0111" and nPX_CS5 = '0' ELSE		-- led
+			LCD 		when CX_A(23 DOWNTO 20) = "1000" and nPX_CS5 = '0' else		-- Text LCD
+			DOT_D 		when CX_A(23 DOWNTO 20) = "1001" and nPX_CS5 = '0' else		-- Dot matrix data
+			DOT_C 		when CX_A(23 DOWNTO 20) = "1010" and nPX_CS5 = '0' else		-- Dot matrix comm
+			STEP_MOTOR	when CX_A(23 DOWNTO 20) = "1011" and nPX_CS5 = '0' else		-- Step Motor
+			USER_CS1	when CX_A(23 DOWNTO 20) = "1100" and nPX_CS5 = '0' else		-- User CS1
+			USER_CS2	when CX_A(23 DOWNTO 20) = "1101" and nPX_CS5 = '0' else		-- User CS2
+			USER_CS3	when CX_A(23 DOWNTO 20) = "1110" and nPX_CS5 = '0' else		-- User CS3
+			USER_CS4	when CX_A(23 DOWNTO 20) = "1111" and nPX_CS5 = '0' else		-- User CS4
+			X"ffff";
+
+	USB_CS <= CS(0);
+			
+	PROCESS(nPX_PWE)
+	BEGIN
+		IF nPX_PWE'event and nPX_PWE = '1' then
+			CASE CS IS
+				WHEN USB =>
+					null;
+				WHEN SRAM_1 =>					
+					null;
+				WHEN SRAM_2 =>
+					null;
+				WHEN SEG =>
+					SEG_DATA <= CX_D(7 downto 0);
+					SEG_COM <= NOT CX_D(13 downto 8);
+				WHEN DIPSW =>
+					
+				WHEN KeyPada =>
+					PUSH_SCAN <= NOT CX_D(3 downto 0);
+				WHEN KeyPadb =>
+				
+				when LED_T =>
+					LED <= CX_D(7 downto 0);				
+				when LCD =>
+					LCD_RS <= CX_D(8);
+					LCD_RW <= CX_D(9);
+					LCD_E <= CX_D(10);
+					LCD_DATA <= CX_D(7 downto 0);
+				when DOT_D =>
+					DOT_DATA <= CX_D(0) & CX_D(1) & CX_D(2) & CX_D(3) & CX_D(4) & CX_D(5) & CX_D(6);
+				when DOT_C =>
+					DOT_ADDRESS <= CX_D(9 downto 0);
+				when STEP_MOTOR =>
+					A <= CX_D(3);
+					B <= CX_D(2);
+					Abar <= CX_D(1);
+					Bbar <= CX_D(0);
+				when USER_CS1 =>
+					null;
+				when USER_CS2 =>
+					null;
+				when USER_CS3 =>
+					null;
+				WHEN USER_CS4 =>
+					null;
+				when others =>
+					null;
+			END CASE;
+		END IF;
+	END PROCESS;
+
+	CX_D <= "ZZZZZZZZZZZZZZZZ" when CS = SRAM_1 else
+			"ZZZZZZZZZZZZZZZZ" when CS = SRAM_2 else
+			"ZZZZZZZZZZZZZZZZ" when CS = USB else
+			X"00" & DIP_SW_a when CS = DIPSW else
+			X"000" & (NOT PUSH_DATA) when CS = KeyPadb else
+			"ZZZZZZZZZZZZZZZZ" when CS = USER_CS1 else
+			"ZZZZZZZZZZZZZZZZ" when CS = USER_CS2 else
+			"ZZZZZZZZZZZZZZZZ" when CS = USER_CS3 else
+			"ZZZZZZZZZZZZZZZZ" when CS = USER_CS4 else
+			"ZZZZZZZZZZZZZZZZ";
+
+	nCX_WE <= nPX_PWE;
+	
+	nRAM_CS <= '0';
+	nRAM_OE <= '0';
+	nRAM_WE <= '0';
+	
+END ARC;

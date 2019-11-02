@@ -1,0 +1,134 @@
+# Copyright (C) 1991-2006 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		AddrDecoder_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+set_global_assignment -name FAMILY Cyclone
+set_global_assignment -name DEVICE EP1C6Q240C8
+set_global_assignment -name TOP_LEVEL_ENTITY AddrDecoder
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "6.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "04:50:38  JULY 26, 2007"
+set_global_assignment -name LAST_QUARTUS_VERSION "7.1 SP1"
+set_global_assignment -name CYCLONE_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name CYCLONE_CONFIGURATION_DEVICE EPC2
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+set_location_assignment PIN_108 -to A
+set_location_assignment PIN_114 -to Abar
+set_location_assignment PIN_113 -to B
+set_location_assignment PIN_115 -to Bbar
+set_location_assignment PIN_56 -to CX_A[20]
+set_location_assignment PIN_54 -to CX_A[21]
+set_location_assignment PIN_53 -to CX_A[22]
+set_location_assignment PIN_50 -to CX_A[23]
+set_location_assignment PIN_1 -to CX_D[0]
+set_location_assignment PIN_3 -to CX_D[1]
+set_location_assignment PIN_5 -to CX_D[2]
+set_location_assignment PIN_7 -to CX_D[3]
+set_location_assignment PIN_11 -to CX_D[4]
+set_location_assignment PIN_13 -to CX_D[5]
+set_location_assignment PIN_15 -to CX_D[6]
+set_location_assignment PIN_17 -to CX_D[7]
+set_location_assignment PIN_19 -to CX_D[8]
+set_location_assignment PIN_21 -to CX_D[9]
+set_location_assignment PIN_37 -to CX_D[10]
+set_location_assignment PIN_39 -to CX_D[11]
+set_location_assignment PIN_42 -to CX_D[12]
+set_location_assignment PIN_44 -to CX_D[13]
+set_location_assignment PIN_46 -to CX_D[14]
+set_location_assignment PIN_48 -to CX_D[15]
+set_location_assignment PIN_162 -to DIP_sw_a[0]
+set_location_assignment PIN_161 -to DIP_sw_a[1]
+set_location_assignment PIN_160 -to DIP_sw_a[2]
+set_location_assignment PIN_159 -to DIP_sw_a[3]
+set_location_assignment PIN_158 -to DIP_sw_a[4]
+set_location_assignment PIN_156 -to DIP_sw_a[5]
+set_location_assignment PIN_144 -to DIP_sw_a[6]
+set_location_assignment PIN_143 -to DIP_sw_a[7]
+set_location_assignment PIN_216 -to DOT_ADDRESS[0]
+set_location_assignment PIN_215 -to DOT_ADDRESS[1]
+set_location_assignment PIN_214 -to DOT_ADDRESS[2]
+set_location_assignment PIN_213 -to DOT_ADDRESS[3]
+set_location_assignment PIN_208 -to DOT_ADDRESS[4]
+set_location_assignment PIN_207 -to DOT_ADDRESS[5]
+set_location_assignment PIN_206 -to DOT_ADDRESS[6]
+set_location_assignment PIN_203 -to DOT_ADDRESS[7]
+set_location_assignment PIN_202 -to DOT_ADDRESS[8]
+set_location_assignment PIN_201 -to DOT_ADDRESS[9]
+set_location_assignment PIN_225 -to DOT_DATA[0]
+set_location_assignment PIN_224 -to DOT_DATA[1]
+set_location_assignment PIN_223 -to DOT_DATA[2]
+set_location_assignment PIN_222 -to DOT_DATA[3]
+set_location_assignment PIN_219 -to DOT_DATA[4]
+set_location_assignment PIN_218 -to DOT_DATA[5]
+set_location_assignment PIN_217 -to DOT_DATA[6]
+set_location_assignment PIN_237 -to LCD_DATA[0]
+set_location_assignment PIN_236 -to LCD_DATA[1]
+set_location_assignment PIN_235 -to LCD_DATA[2]
+set_location_assignment PIN_234 -to LCD_DATA[3]
+set_location_assignment PIN_233 -to LCD_DATA[4]
+set_location_assignment PIN_228 -to LCD_DATA[5]
+set_location_assignment PIN_227 -to LCD_DATA[6]
+set_location_assignment PIN_226 -to LCD_DATA[7]
+set_location_assignment PIN_238 -to LCD_E
+set_location_assignment PIN_240 -to LCD_RS
+set_location_assignment PIN_239 -to LCD_RW
+set_location_assignment PIN_180 -to LED[0]
+set_location_assignment PIN_179 -to LED[1]
+set_location_assignment PIN_178 -to LED[2]
+set_location_assignment PIN_177 -to LED[3]
+set_location_assignment PIN_176 -to LED[4]
+set_location_assignment PIN_175 -to LED[5]
+set_location_assignment PIN_174 -to LED[6]
+set_location_assignment PIN_173 -to LED[7]
+set_location_assignment PIN_66 -to nCX_WE
+set_location_assignment PIN_59 -to nPX_CS5
+set_location_assignment PIN_60 -to nPX_PWE
+set_location_assignment PIN_78 -to nRAM_CS
+set_location_assignment PIN_106 -to nRAM_OE
+set_location_assignment PIN_93 -to nRAM_WE
+set_location_assignment PIN_57 -to nRESET
+set_location_assignment PIN_166 -to PUSH_DATA[0]
+set_location_assignment PIN_165 -to PUSH_DATA[1]
+set_location_assignment PIN_164 -to PUSH_DATA[2]
+set_location_assignment PIN_163 -to PUSH_DATA[3]
+set_location_assignment PIN_170 -to PUSH_SCAN[0]
+set_location_assignment PIN_169 -to PUSH_SCAN[1]
+set_location_assignment PIN_168 -to PUSH_SCAN[2]
+set_location_assignment PIN_167 -to PUSH_SCAN[3]
+set_location_assignment PIN_200 -to SEG_COM[0]
+set_location_assignment PIN_197 -to SEG_COM[1]
+set_location_assignment PIN_196 -to SEG_COM[2]
+set_location_assignment PIN_195 -to SEG_COM[3]
+set_location_assignment PIN_194 -to SEG_COM[4]
+set_location_assignment PIN_193 -to SEG_COM[5]
+set_location_assignment PIN_188 -to SEG_DATA[0]
+set_location_assignment PIN_187 -to SEG_DATA[1]
+set_location_assignment PIN_186 -to SEG_DATA[2]
+set_location_assignment PIN_185 -to SEG_DATA[3]
+set_location_assignment PIN_184 -to SEG_DATA[4]
+set_location_assignment PIN_183 -to SEG_DATA[5]
+set_location_assignment PIN_182 -to SEG_DATA[6]
+set_location_assignment PIN_181 -to SEG_DATA[7]
+set_location_assignment PIN_68 -to USB_CS
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"
+set_global_assignment -name VERILOG_FILE AddrDecoder.v

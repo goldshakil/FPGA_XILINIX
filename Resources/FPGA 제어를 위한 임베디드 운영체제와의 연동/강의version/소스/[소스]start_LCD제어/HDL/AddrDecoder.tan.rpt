@@ -1,0 +1,763 @@
+Classic Timing Analyzer report for AddrDecoder
+Mon Jul 30 14:41:41 2007
+Quartus II Version 7.1 Build 178 06/25/2007 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Clock Setup: 'nPX_PWE'
+  6. tsu
+  7. tco
+  8. tpd
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                          ;
++------------------------------+-------+---------------+------------------------------------------------+-------------+---------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                                    ; From        ; To                  ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+------------------------------------------------+-------------+---------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 6.822 ns                                       ; nPX_CS5     ; DOT_ADDRESS[5]~reg0 ; --         ; nPX_PWE  ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 15.334 ns                                      ; Bbar~reg0   ; Bbar                ; nPX_PWE    ; --       ; 0            ;
+; Worst-case tpd               ; N/A   ; None          ; 18.022 ns                                      ; nPX_CS5     ; CX_D[4]             ; --         ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; 0.423 ns                                       ; CX_D[6]     ; LCD_DATA[6]~reg0    ; --         ; nPX_PWE  ; 0            ;
+; Clock Setup: 'nPX_PWE'       ; N/A   ; None          ; Restricted to 275.03 MHz ( period = 3.636 ns ) ; LCD_RS~reg0 ; LCD_DATA[5]~reg0    ; nPX_PWE    ; nPX_PWE  ; 0            ;
+; Total number of failed paths ;       ;               ;                                                ;             ;                     ;            ;          ; 0            ;
++------------------------------+-------+---------------+------------------------------------------------+-------------+---------------------+------------+----------+--------------+
+
+
++------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                ; Setting            ; From ; To ; Entity Name ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                           ; EP1C6Q240C8        ;      ;    ;             ;
+; Timing Models                                         ; Final              ;      ;    ;             ;
+; Default hold multicycle                               ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains             ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                        ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                      ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                 ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements               ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                      ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                  ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                 ; 10                 ;      ;    ;             ;
+; Number of paths to report                             ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                          ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                            ; Off                ;      ;    ;             ;
++-------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; nPX_PWE         ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'nPX_PWE'                                                                                                                                                                              ;
++-------+------------------------------------------------+-------------+------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)                           ; From        ; To               ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+------------------------------------------------+-------------+------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; Restricted to 275.03 MHz ( period = 3.636 ns ) ; LCD_RS~reg0 ; LCD_DATA[5]~reg0 ; nPX_PWE    ; nPX_PWE  ; None                        ; None                      ; 1.128 ns                ;
+; N/A   ; Restricted to 275.03 MHz ( period = 3.636 ns ) ; LCD_RW~reg0 ; LCD_DATA[5]~reg0 ; nPX_PWE    ; nPX_PWE  ; None                        ; None                      ; 0.869 ns                ;
++-------+------------------------------------------------+-------------+------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                    ;
++-----------------------------------------+-----------------------------------------------------+------------+----------+---------------------+----------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From     ; To                  ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+----------+---------------------+----------+
+; N/A                                     ; None                                                ; 6.822 ns   ; nPX_CS5  ; DOT_ADDRESS[2]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.822 ns   ; nPX_CS5  ; DOT_ADDRESS[3]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.822 ns   ; nPX_CS5  ; DOT_ADDRESS[4]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.822 ns   ; nPX_CS5  ; DOT_ADDRESS[5]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.080 ns   ; nPX_CS5  ; DOT_ADDRESS[0]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.080 ns   ; nPX_CS5  ; DOT_ADDRESS[1]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.080 ns   ; nPX_CS5  ; DOT_ADDRESS[6]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.080 ns   ; nPX_CS5  ; DOT_ADDRESS[7]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.080 ns   ; nPX_CS5  ; DOT_ADDRESS[8]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.072 ns   ; nPX_CS5  ; LCD_E~reg0          ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.072 ns   ; nPX_CS5  ; LCD_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.072 ns   ; nPX_CS5  ; LCD_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 6.039 ns   ; nPX_CS5  ; DOT_ADDRESS[9]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.919 ns   ; nPX_CS5  ; LCD_RS~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.919 ns   ; nPX_CS5  ; LCD_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.919 ns   ; nPX_CS5  ; LCD_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.919 ns   ; nPX_CS5  ; LCD_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.919 ns   ; nPX_CS5  ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.919 ns   ; nPX_CS5  ; LCD_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.919 ns   ; nPX_CS5  ; LCD_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.919 ns   ; nPX_CS5  ; LCD_RW~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.864 ns   ; nPX_CS5  ; LED[2]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.864 ns   ; nPX_CS5  ; LED[3]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.864 ns   ; nPX_CS5  ; LED[4]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.864 ns   ; nPX_CS5  ; LED[5]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.864 ns   ; nPX_CS5  ; LED[6]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.864 ns   ; nPX_CS5  ; LED[7]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.714 ns   ; CX_A[23] ; SEG_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.714 ns   ; CX_A[23] ; SEG_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.714 ns   ; CX_A[23] ; SEG_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.714 ns   ; CX_A[23] ; SEG_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.714 ns   ; CX_A[23] ; SEG_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.714 ns   ; CX_A[23] ; SEG_COM[0]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.714 ns   ; CX_A[23] ; SEG_COM[2]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.706 ns   ; nPX_CS5  ; SEG_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.706 ns   ; nPX_CS5  ; SEG_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.706 ns   ; nPX_CS5  ; SEG_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.706 ns   ; nPX_CS5  ; SEG_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.706 ns   ; nPX_CS5  ; SEG_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.706 ns   ; nPX_CS5  ; SEG_COM[0]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.706 ns   ; nPX_CS5  ; SEG_COM[2]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.650 ns   ; CX_A[22] ; DOT_ADDRESS[2]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.650 ns   ; CX_A[22] ; DOT_ADDRESS[3]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.650 ns   ; CX_A[22] ; DOT_ADDRESS[4]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.650 ns   ; CX_A[22] ; DOT_ADDRESS[5]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.557 ns   ; CX_A[23] ; LED[2]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.557 ns   ; CX_A[23] ; LED[3]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.557 ns   ; CX_A[23] ; LED[4]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.557 ns   ; CX_A[23] ; LED[5]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.557 ns   ; CX_A[23] ; LED[6]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.557 ns   ; CX_A[23] ; LED[7]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.496 ns   ; CX_A[23] ; DOT_ADDRESS[2]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.496 ns   ; CX_A[23] ; DOT_ADDRESS[3]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.496 ns   ; CX_A[23] ; DOT_ADDRESS[4]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.496 ns   ; CX_A[23] ; DOT_ADDRESS[5]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.406 ns   ; CX_A[21] ; DOT_ADDRESS[2]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.406 ns   ; CX_A[21] ; DOT_ADDRESS[3]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.406 ns   ; CX_A[21] ; DOT_ADDRESS[4]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.406 ns   ; CX_A[21] ; DOT_ADDRESS[5]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.316 ns   ; CX_A[20] ; SEG_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.316 ns   ; CX_A[20] ; SEG_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.316 ns   ; CX_A[20] ; SEG_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.316 ns   ; CX_A[20] ; SEG_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.316 ns   ; CX_A[20] ; SEG_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.316 ns   ; CX_A[20] ; SEG_COM[0]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.316 ns   ; CX_A[20] ; SEG_COM[2]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.286 ns   ; CX_A[20] ; DOT_ADDRESS[2]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.286 ns   ; CX_A[20] ; DOT_ADDRESS[3]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.286 ns   ; CX_A[20] ; DOT_ADDRESS[4]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.286 ns   ; CX_A[20] ; DOT_ADDRESS[5]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.252 ns   ; nPX_CS5  ; DOT_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.252 ns   ; nPX_CS5  ; DOT_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.252 ns   ; nPX_CS5  ; DOT_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.252 ns   ; nPX_CS5  ; DOT_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.252 ns   ; nPX_CS5  ; DOT_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.252 ns   ; nPX_CS5  ; DOT_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.252 ns   ; nPX_CS5  ; DOT_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.125 ns   ; CX_A[22] ; LED[2]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.125 ns   ; CX_A[22] ; LED[3]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.125 ns   ; CX_A[22] ; LED[4]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.125 ns   ; CX_A[22] ; LED[5]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.125 ns   ; CX_A[22] ; LED[6]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.125 ns   ; CX_A[22] ; LED[7]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.117 ns   ; nPX_CS5  ; PUSH_SCAN[0]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.117 ns   ; nPX_CS5  ; PUSH_SCAN[1]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.117 ns   ; nPX_CS5  ; PUSH_SCAN[2]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.117 ns   ; nPX_CS5  ; PUSH_SCAN[3]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.114 ns   ; nPX_CS5  ; LED[0]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 5.114 ns   ; nPX_CS5  ; LED[1]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.908 ns   ; CX_A[22] ; DOT_ADDRESS[0]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.908 ns   ; CX_A[22] ; DOT_ADDRESS[1]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.908 ns   ; CX_A[22] ; DOT_ADDRESS[6]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.908 ns   ; CX_A[22] ; DOT_ADDRESS[7]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.908 ns   ; CX_A[22] ; DOT_ADDRESS[8]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.900 ns   ; CX_A[22] ; LCD_E~reg0          ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.900 ns   ; CX_A[22] ; LCD_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.900 ns   ; CX_A[22] ; LCD_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.867 ns   ; CX_A[22] ; DOT_ADDRESS[9]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.848 ns   ; CX_A[23] ; SEG_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.848 ns   ; CX_A[23] ; SEG_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.848 ns   ; CX_A[23] ; SEG_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.840 ns   ; nPX_CS5  ; SEG_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.840 ns   ; nPX_CS5  ; SEG_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.840 ns   ; nPX_CS5  ; SEG_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.810 ns   ; CX_A[23] ; PUSH_SCAN[0]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.810 ns   ; CX_A[23] ; PUSH_SCAN[1]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.810 ns   ; CX_A[23] ; PUSH_SCAN[2]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.810 ns   ; CX_A[23] ; PUSH_SCAN[3]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.807 ns   ; CX_A[23] ; LED[0]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.807 ns   ; CX_A[23] ; LED[1]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.754 ns   ; CX_A[23] ; DOT_ADDRESS[0]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.754 ns   ; CX_A[23] ; DOT_ADDRESS[1]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.754 ns   ; CX_A[23] ; DOT_ADDRESS[6]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.754 ns   ; CX_A[23] ; DOT_ADDRESS[7]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.754 ns   ; CX_A[23] ; DOT_ADDRESS[8]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.747 ns   ; CX_A[22] ; LCD_RS~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.747 ns   ; CX_A[22] ; LCD_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.747 ns   ; CX_A[22] ; LCD_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.747 ns   ; CX_A[22] ; LCD_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.747 ns   ; CX_A[22] ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.747 ns   ; CX_A[22] ; LCD_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.747 ns   ; CX_A[22] ; LCD_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.747 ns   ; CX_A[22] ; LCD_RW~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.746 ns   ; CX_A[23] ; LCD_E~reg0          ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.746 ns   ; CX_A[23] ; LCD_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.746 ns   ; CX_A[23] ; LCD_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.717 ns   ; CX_A[21] ; SEG_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.717 ns   ; CX_A[21] ; SEG_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.717 ns   ; CX_A[21] ; SEG_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.717 ns   ; CX_A[21] ; SEG_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.717 ns   ; CX_A[21] ; SEG_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.717 ns   ; CX_A[21] ; SEG_COM[0]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.717 ns   ; CX_A[21] ; SEG_COM[2]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.713 ns   ; CX_A[23] ; DOT_ADDRESS[9]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.664 ns   ; CX_A[21] ; DOT_ADDRESS[0]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.664 ns   ; CX_A[21] ; DOT_ADDRESS[1]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.664 ns   ; CX_A[21] ; DOT_ADDRESS[6]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.664 ns   ; CX_A[21] ; DOT_ADDRESS[7]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.664 ns   ; CX_A[21] ; DOT_ADDRESS[8]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.661 ns   ; CX_A[21] ; LED[2]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.661 ns   ; CX_A[21] ; LED[3]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.661 ns   ; CX_A[21] ; LED[4]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.661 ns   ; CX_A[21] ; LED[5]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.661 ns   ; CX_A[21] ; LED[6]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.661 ns   ; CX_A[21] ; LED[7]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.655 ns   ; CX_A[21] ; LCD_E~reg0          ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.655 ns   ; CX_A[21] ; LCD_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.655 ns   ; CX_A[21] ; LCD_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.623 ns   ; CX_A[21] ; DOT_ADDRESS[9]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.593 ns   ; CX_A[23] ; LCD_RS~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.593 ns   ; CX_A[23] ; LCD_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.593 ns   ; CX_A[23] ; LCD_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.593 ns   ; CX_A[23] ; LCD_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.593 ns   ; CX_A[23] ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.593 ns   ; CX_A[23] ; LCD_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.593 ns   ; CX_A[23] ; LCD_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.593 ns   ; CX_A[23] ; LCD_RW~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.544 ns   ; CX_A[20] ; DOT_ADDRESS[0]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.544 ns   ; CX_A[20] ; DOT_ADDRESS[1]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.544 ns   ; CX_A[20] ; DOT_ADDRESS[6]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.544 ns   ; CX_A[20] ; DOT_ADDRESS[7]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.544 ns   ; CX_A[20] ; DOT_ADDRESS[8]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.539 ns   ; CX_A[20] ; LCD_E~reg0          ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.539 ns   ; CX_A[20] ; LCD_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.539 ns   ; CX_A[20] ; LCD_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.521 ns   ; nPX_CS5  ; A~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.521 ns   ; nPX_CS5  ; B~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.521 ns   ; nPX_CS5  ; Abar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.521 ns   ; nPX_CS5  ; Bbar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.503 ns   ; CX_A[20] ; DOT_ADDRESS[9]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.502 ns   ; CX_A[21] ; LCD_RS~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.502 ns   ; CX_A[21] ; LCD_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.502 ns   ; CX_A[21] ; LCD_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.502 ns   ; CX_A[21] ; LCD_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.502 ns   ; CX_A[21] ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.502 ns   ; CX_A[21] ; LCD_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.502 ns   ; CX_A[21] ; LCD_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.502 ns   ; CX_A[21] ; LCD_RW~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.450 ns   ; CX_A[20] ; SEG_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.450 ns   ; CX_A[20] ; SEG_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.450 ns   ; CX_A[20] ; SEG_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.386 ns   ; CX_A[20] ; LCD_RS~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.386 ns   ; CX_A[20] ; LCD_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.386 ns   ; CX_A[20] ; LCD_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.386 ns   ; CX_A[20] ; LCD_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.386 ns   ; CX_A[20] ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.386 ns   ; CX_A[20] ; LCD_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.386 ns   ; CX_A[20] ; LCD_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.386 ns   ; CX_A[20] ; LCD_RW~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.378 ns   ; CX_A[22] ; PUSH_SCAN[0]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.378 ns   ; CX_A[22] ; PUSH_SCAN[1]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.378 ns   ; CX_A[22] ; PUSH_SCAN[2]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.378 ns   ; CX_A[22] ; PUSH_SCAN[3]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.375 ns   ; CX_A[22] ; LED[0]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.375 ns   ; CX_A[22] ; LED[1]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.334 ns   ; CX_A[20] ; LED[2]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.334 ns   ; CX_A[20] ; LED[3]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.334 ns   ; CX_A[20] ; LED[4]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.334 ns   ; CX_A[20] ; LED[5]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 4.334 ns   ; CX_A[20] ; LED[6]~reg0         ; nPX_PWE  ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;          ;                     ;          ;
++-----------------------------------------+-----------------------------------------------------+------------+----------+---------------------+----------+
+
+
++---------------------------------------------------------------------------------------+
+; tco                                                                                   ;
++-------+--------------+------------+---------------------+----------------+------------+
+; Slack ; Required tco ; Actual tco ; From                ; To             ; From Clock ;
++-------+--------------+------------+---------------------+----------------+------------+
+; N/A   ; None         ; 15.334 ns  ; Bbar~reg0           ; Bbar           ; nPX_PWE    ;
+; N/A   ; None         ; 15.039 ns  ; Abar~reg0           ; Abar           ; nPX_PWE    ;
+; N/A   ; None         ; 15.027 ns  ; A~reg0              ; A              ; nPX_PWE    ;
+; N/A   ; None         ; 15.023 ns  ; B~reg0              ; B              ; nPX_PWE    ;
+; N/A   ; None         ; 13.155 ns  ; SEG_DATA[4]~reg0    ; SEG_DATA[4]    ; nPX_PWE    ;
+; N/A   ; None         ; 13.149 ns  ; SEG_DATA[5]~reg0    ; SEG_DATA[5]    ; nPX_PWE    ;
+; N/A   ; None         ; 13.136 ns  ; SEG_DATA[6]~reg0    ; SEG_DATA[6]    ; nPX_PWE    ;
+; N/A   ; None         ; 13.007 ns  ; PUSH_SCAN[3]~reg0   ; PUSH_SCAN[3]   ; nPX_PWE    ;
+; N/A   ; None         ; 12.987 ns  ; PUSH_SCAN[1]~reg0   ; PUSH_SCAN[1]   ; nPX_PWE    ;
+; N/A   ; None         ; 12.965 ns  ; LED[5]~reg0         ; LED[5]         ; nPX_PWE    ;
+; N/A   ; None         ; 12.963 ns  ; PUSH_SCAN[2]~reg0   ; PUSH_SCAN[2]   ; nPX_PWE    ;
+; N/A   ; None         ; 12.962 ns  ; PUSH_SCAN[0]~reg0   ; PUSH_SCAN[0]   ; nPX_PWE    ;
+; N/A   ; None         ; 12.949 ns  ; SEG_COM[3]~reg0     ; SEG_COM[3]     ; nPX_PWE    ;
+; N/A   ; None         ; 12.939 ns  ; SEG_COM[4]~reg0     ; SEG_COM[4]     ; nPX_PWE    ;
+; N/A   ; None         ; 12.934 ns  ; LED[1]~reg0         ; LED[1]         ; nPX_PWE    ;
+; N/A   ; None         ; 12.932 ns  ; SEG_COM[5]~reg0     ; SEG_COM[5]     ; nPX_PWE    ;
+; N/A   ; None         ; 12.930 ns  ; LED[7]~reg0         ; LED[7]         ; nPX_PWE    ;
+; N/A   ; None         ; 12.922 ns  ; LED[6]~reg0         ; LED[6]         ; nPX_PWE    ;
+; N/A   ; None         ; 12.922 ns  ; LED[0]~reg0         ; LED[0]         ; nPX_PWE    ;
+; N/A   ; None         ; 12.847 ns  ; LCD_E~reg0          ; LCD_E          ; nPX_PWE    ;
+; N/A   ; None         ; 12.834 ns  ; LCD_DATA[1]~reg0    ; LCD_DATA[1]    ; nPX_PWE    ;
+; N/A   ; None         ; 12.818 ns  ; LCD_DATA[0]~reg0    ; LCD_DATA[0]    ; nPX_PWE    ;
+; N/A   ; None         ; 12.708 ns  ; SEG_DATA[7]~reg0    ; SEG_DATA[7]    ; nPX_PWE    ;
+; N/A   ; None         ; 12.605 ns  ; SEG_COM[1]~reg0     ; SEG_COM[1]     ; nPX_PWE    ;
+; N/A   ; None         ; 12.600 ns  ; DOT_ADDRESS[9]~reg0 ; DOT_ADDRESS[9] ; nPX_PWE    ;
+; N/A   ; None         ; 12.506 ns  ; LED[4]~reg0         ; LED[4]         ; nPX_PWE    ;
+; N/A   ; None         ; 12.505 ns  ; LED[3]~reg0         ; LED[3]         ; nPX_PWE    ;
+; N/A   ; None         ; 12.494 ns  ; LED[2]~reg0         ; LED[2]         ; nPX_PWE    ;
+; N/A   ; None         ; 12.397 ns  ; SEG_DATA[3]~reg0    ; SEG_DATA[3]    ; nPX_PWE    ;
+; N/A   ; None         ; 12.390 ns  ; SEG_DATA[2]~reg0    ; SEG_DATA[2]    ; nPX_PWE    ;
+; N/A   ; None         ; 12.387 ns  ; SEG_DATA[0]~reg0    ; SEG_DATA[0]    ; nPX_PWE    ;
+; N/A   ; None         ; 12.383 ns  ; SEG_DATA[1]~reg0    ; SEG_DATA[1]    ; nPX_PWE    ;
+; N/A   ; None         ; 12.222 ns  ; DOT_ADDRESS[2]~reg0 ; DOT_ADDRESS[2] ; nPX_PWE    ;
+; N/A   ; None         ; 12.190 ns  ; DOT_ADDRESS[0]~reg0 ; DOT_ADDRESS[0] ; nPX_PWE    ;
+; N/A   ; None         ; 12.065 ns  ; SEG_COM[2]~reg0     ; SEG_COM[2]     ; nPX_PWE    ;
+; N/A   ; None         ; 11.989 ns  ; DOT_ADDRESS[3]~reg0 ; DOT_ADDRESS[3] ; nPX_PWE    ;
+; N/A   ; None         ; 11.859 ns  ; DOT_ADDRESS[5]~reg0 ; DOT_ADDRESS[5] ; nPX_PWE    ;
+; N/A   ; None         ; 11.857 ns  ; DOT_ADDRESS[1]~reg0 ; DOT_ADDRESS[1] ; nPX_PWE    ;
+; N/A   ; None         ; 11.848 ns  ; DOT_ADDRESS[4]~reg0 ; DOT_ADDRESS[4] ; nPX_PWE    ;
+; N/A   ; None         ; 11.745 ns  ; SEG_COM[0]~reg0     ; SEG_COM[0]     ; nPX_PWE    ;
+; N/A   ; None         ; 11.740 ns  ; DOT_DATA[2]~reg0    ; DOT_DATA[2]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.740 ns  ; DOT_ADDRESS[8]~reg0 ; DOT_ADDRESS[8] ; nPX_PWE    ;
+; N/A   ; None         ; 11.740 ns  ; DOT_ADDRESS[7]~reg0 ; DOT_ADDRESS[7] ; nPX_PWE    ;
+; N/A   ; None         ; 11.734 ns  ; LCD_RS~reg0         ; LCD_RS         ; nPX_PWE    ;
+; N/A   ; None         ; 11.732 ns  ; DOT_DATA[1]~reg0    ; DOT_DATA[1]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.732 ns  ; LCD_RW~reg0         ; LCD_RW         ; nPX_PWE    ;
+; N/A   ; None         ; 11.727 ns  ; DOT_DATA[0]~reg0    ; DOT_DATA[0]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.726 ns  ; DOT_DATA[3]~reg0    ; DOT_DATA[3]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.726 ns  ; LCD_DATA[2]~reg0    ; LCD_DATA[2]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.417 ns  ; DOT_ADDRESS[6]~reg0 ; DOT_ADDRESS[6] ; nPX_PWE    ;
+; N/A   ; None         ; 11.408 ns  ; DOT_DATA[6]~reg0    ; DOT_DATA[6]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.408 ns  ; DOT_DATA[5]~reg0    ; DOT_DATA[5]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.408 ns  ; LCD_DATA[7]~reg0    ; LCD_DATA[7]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.408 ns  ; LCD_DATA[5]~reg0    ; LCD_DATA[5]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.408 ns  ; LCD_DATA[3]~reg0    ; LCD_DATA[3]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.405 ns  ; DOT_DATA[4]~reg0    ; DOT_DATA[4]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.405 ns  ; LCD_DATA[6]~reg0    ; LCD_DATA[6]    ; nPX_PWE    ;
+; N/A   ; None         ; 11.405 ns  ; LCD_DATA[4]~reg0    ; LCD_DATA[4]    ; nPX_PWE    ;
++-------+--------------+------------+---------------------+----------------+------------+
+
+
++-----------------------------------------------------------------------+
+; tpd                                                                   ;
++-------+-------------------+-----------------+--------------+----------+
+; Slack ; Required P2P Time ; Actual P2P Time ; From         ; To       ;
++-------+-------------------+-----------------+--------------+----------+
+; N/A   ; None              ; 18.022 ns       ; nPX_CS5      ; CX_D[4]  ;
+; N/A   ; None              ; 18.016 ns       ; nPX_CS5      ; CX_D[7]  ;
+; N/A   ; None              ; 18.016 ns       ; nPX_CS5      ; CX_D[3]  ;
+; N/A   ; None              ; 18.012 ns       ; nPX_CS5      ; CX_D[5]  ;
+; N/A   ; None              ; 17.931 ns       ; nPX_CS5      ; CX_D[0]  ;
+; N/A   ; None              ; 17.759 ns       ; nPX_CS5      ; CX_D[15] ;
+; N/A   ; None              ; 17.715 ns       ; CX_A[23]     ; CX_D[4]  ;
+; N/A   ; None              ; 17.709 ns       ; CX_A[23]     ; CX_D[7]  ;
+; N/A   ; None              ; 17.709 ns       ; CX_A[23]     ; CX_D[3]  ;
+; N/A   ; None              ; 17.705 ns       ; CX_A[23]     ; CX_D[5]  ;
+; N/A   ; None              ; 17.624 ns       ; CX_A[23]     ; CX_D[0]  ;
+; N/A   ; None              ; 17.539 ns       ; CX_A[20]     ; CX_D[0]  ;
+; N/A   ; None              ; 17.471 ns       ; nPX_CS5      ; CX_D[6]  ;
+; N/A   ; None              ; 17.316 ns       ; nPX_CS5      ; CX_D[14] ;
+; N/A   ; None              ; 17.315 ns       ; nPX_CS5      ; CX_D[13] ;
+; N/A   ; None              ; 17.308 ns       ; nPX_CS5      ; CX_D[12] ;
+; N/A   ; None              ; 17.306 ns       ; nPX_CS5      ; CX_D[11] ;
+; N/A   ; None              ; 17.283 ns       ; CX_A[22]     ; CX_D[4]  ;
+; N/A   ; None              ; 17.277 ns       ; CX_A[22]     ; CX_D[7]  ;
+; N/A   ; None              ; 17.277 ns       ; CX_A[22]     ; CX_D[3]  ;
+; N/A   ; None              ; 17.273 ns       ; CX_A[22]     ; CX_D[5]  ;
+; N/A   ; None              ; 17.254 ns       ; CX_A[21]     ; CX_D[0]  ;
+; N/A   ; None              ; 17.192 ns       ; CX_A[22]     ; CX_D[0]  ;
+; N/A   ; None              ; 17.164 ns       ; CX_A[23]     ; CX_D[6]  ;
+; N/A   ; None              ; 16.873 ns       ; nPX_CS5      ; CX_D[1]  ;
+; N/A   ; None              ; 16.872 ns       ; nPX_CS5      ; CX_D[2]  ;
+; N/A   ; None              ; 16.778 ns       ; nPX_CS5      ; CX_D[10] ;
+; N/A   ; None              ; 16.740 ns       ; CX_A[23]     ; CX_D[15] ;
+; N/A   ; None              ; 16.732 ns       ; CX_A[22]     ; CX_D[6]  ;
+; N/A   ; None              ; 16.583 ns       ; CX_A[22]     ; CX_D[15] ;
+; N/A   ; None              ; 16.566 ns       ; CX_A[23]     ; CX_D[1]  ;
+; N/A   ; None              ; 16.565 ns       ; CX_A[23]     ; CX_D[2]  ;
+; N/A   ; None              ; 16.479 ns       ; CX_A[20]     ; CX_D[15] ;
+; N/A   ; None              ; 16.356 ns       ; CX_A[20]     ; USB_CS   ;
+; N/A   ; None              ; 16.297 ns       ; CX_A[23]     ; CX_D[14] ;
+; N/A   ; None              ; 16.296 ns       ; CX_A[23]     ; CX_D[13] ;
+; N/A   ; None              ; 16.289 ns       ; CX_A[23]     ; CX_D[12] ;
+; N/A   ; None              ; 16.287 ns       ; CX_A[23]     ; CX_D[11] ;
+; N/A   ; None              ; 16.220 ns       ; nPX_CS5      ; CX_D[9]  ;
+; N/A   ; None              ; 16.220 ns       ; nPX_CS5      ; CX_D[8]  ;
+; N/A   ; None              ; 16.149 ns       ; CX_A[21]     ; CX_D[3]  ;
+; N/A   ; None              ; 16.140 ns       ; CX_A[22]     ; CX_D[14] ;
+; N/A   ; None              ; 16.139 ns       ; CX_A[22]     ; CX_D[13] ;
+; N/A   ; None              ; 16.137 ns       ; CX_A[21]     ; CX_D[5]  ;
+; N/A   ; None              ; 16.134 ns       ; CX_A[22]     ; CX_D[1]  ;
+; N/A   ; None              ; 16.133 ns       ; CX_A[22]     ; CX_D[2]  ;
+; N/A   ; None              ; 16.132 ns       ; CX_A[22]     ; CX_D[12] ;
+; N/A   ; None              ; 16.130 ns       ; CX_A[22]     ; CX_D[11] ;
+; N/A   ; None              ; 16.071 ns       ; CX_A[21]     ; USB_CS   ;
+; N/A   ; None              ; 16.036 ns       ; CX_A[20]     ; CX_D[14] ;
+; N/A   ; None              ; 16.035 ns       ; CX_A[20]     ; CX_D[13] ;
+; N/A   ; None              ; 16.028 ns       ; CX_A[20]     ; CX_D[12] ;
+; N/A   ; None              ; 16.026 ns       ; CX_A[20]     ; CX_D[11] ;
+; N/A   ; None              ; 15.870 ns       ; CX_A[21]     ; CX_D[4]  ;
+; N/A   ; None              ; 15.859 ns       ; CX_A[21]     ; CX_D[7]  ;
+; N/A   ; None              ; 15.759 ns       ; CX_A[23]     ; CX_D[10] ;
+; N/A   ; None              ; 15.705 ns       ; CX_A[21]     ; CX_D[6]  ;
+; N/A   ; None              ; 15.701 ns       ; CX_A[20]     ; CX_D[4]  ;
+; N/A   ; None              ; 15.689 ns       ; CX_A[20]     ; CX_D[7]  ;
+; N/A   ; None              ; 15.669 ns       ; CX_A[21]     ; CX_D[1]  ;
+; N/A   ; None              ; 15.668 ns       ; CX_A[21]     ; CX_D[2]  ;
+; N/A   ; None              ; 15.623 ns       ; nPX_CS5      ; USB_CS   ;
+; N/A   ; None              ; 15.602 ns       ; CX_A[22]     ; CX_D[10] ;
+; N/A   ; None              ; 15.498 ns       ; CX_A[20]     ; CX_D[10] ;
+; N/A   ; None              ; 15.444 ns       ; CX_A[20]     ; CX_D[2]  ;
+; N/A   ; None              ; 15.329 ns       ; CX_A[20]     ; CX_D[1]  ;
+; N/A   ; None              ; 15.316 ns       ; CX_A[23]     ; USB_CS   ;
+; N/A   ; None              ; 15.218 ns       ; CX_A[20]     ; CX_D[3]  ;
+; N/A   ; None              ; 15.201 ns       ; CX_A[23]     ; CX_D[9]  ;
+; N/A   ; None              ; 15.201 ns       ; CX_A[20]     ; CX_D[5]  ;
+; N/A   ; None              ; 15.201 ns       ; CX_A[23]     ; CX_D[8]  ;
+; N/A   ; None              ; 15.044 ns       ; CX_A[22]     ; CX_D[9]  ;
+; N/A   ; None              ; 15.044 ns       ; CX_A[22]     ; CX_D[8]  ;
+; N/A   ; None              ; 14.940 ns       ; CX_A[20]     ; CX_D[9]  ;
+; N/A   ; None              ; 14.940 ns       ; CX_A[20]     ; CX_D[8]  ;
+; N/A   ; None              ; 14.884 ns       ; CX_A[22]     ; USB_CS   ;
+; N/A   ; None              ; 14.767 ns       ; CX_A[20]     ; CX_D[6]  ;
+; N/A   ; None              ; 14.342 ns       ; PUSH_DATA[2] ; CX_D[0]  ;
+; N/A   ; None              ; 13.924 ns       ; PUSH_DATA[3] ; CX_D[0]  ;
+; N/A   ; None              ; 13.804 ns       ; DIP_sw_a[0]  ; CX_D[0]  ;
+; N/A   ; None              ; 13.731 ns       ; DIP_sw_a[7]  ; CX_D[7]  ;
+; N/A   ; None              ; 13.724 ns       ; PUSH_DATA[1] ; CX_D[0]  ;
+; N/A   ; None              ; 13.685 ns       ; PUSH_DATA[0] ; CX_D[0]  ;
+; N/A   ; None              ; 13.589 ns       ; DIP_sw_a[1]  ; CX_D[1]  ;
+; N/A   ; None              ; 13.563 ns       ; DIP_sw_a[3]  ; CX_D[3]  ;
+; N/A   ; None              ; 13.525 ns       ; DIP_sw_a[6]  ; CX_D[6]  ;
+; N/A   ; None              ; 13.488 ns       ; DIP_sw_a[5]  ; CX_D[5]  ;
+; N/A   ; None              ; 13.472 ns       ; DIP_sw_a[2]  ; CX_D[2]  ;
+; N/A   ; None              ; 13.296 ns       ; DIP_sw_a[4]  ; CX_D[4]  ;
+; N/A   ; None              ; 9.316 ns        ; nPX_PWE      ; nCX_WE   ;
++-------+-------------------+-----------------+--------------+----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                    ;
++-----------------------------------------+-----------------------------------------------------+-----------+----------+---------------------+----------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From     ; To                  ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+-----------+----------+---------------------+----------+
+; N/A                                     ; None                                                ; 0.423 ns  ; CX_D[6]  ; LCD_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 0.410 ns  ; CX_D[4]  ; LCD_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 0.368 ns  ; CX_D[2]  ; LCD_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 0.298 ns  ; CX_D[3]  ; LCD_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 0.190 ns  ; CX_D[0]  ; DOT_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 0.080 ns  ; CX_D[7]  ; LCD_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 0.063 ns  ; CX_D[5]  ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 0.062 ns  ; CX_D[6]  ; DOT_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 0.061 ns  ; CX_D[6]  ; SEG_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; 0.041 ns  ; CX_D[9]  ; LCD_RW~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.072 ns ; CX_D[9]  ; SEG_COM[1]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.072 ns ; CX_D[9]  ; DOT_ADDRESS[9]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.094 ns ; CX_D[5]  ; DOT_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.095 ns ; CX_D[5]  ; SEG_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.101 ns ; CX_D[4]  ; SEG_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.107 ns ; CX_D[4]  ; DOT_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.123 ns ; CX_D[1]  ; DOT_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.146 ns ; CX_D[2]  ; DOT_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.195 ns ; CX_D[0]  ; Bbar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.214 ns ; CX_D[3]  ; DOT_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.248 ns ; CX_D[8]  ; LCD_RS~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.284 ns ; CX_D[0]  ; DOT_ADDRESS[0]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.315 ns ; CX_D[0]  ; LCD_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.317 ns ; CX_D[0]  ; SEG_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.353 ns ; CX_D[6]  ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.528 ns ; CX_D[2]  ; B~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.551 ns ; CX_D[1]  ; Abar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.626 ns ; CX_D[3]  ; A~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.629 ns ; CX_D[1]  ; DOT_ADDRESS[1]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.651 ns ; CX_D[1]  ; LCD_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.651 ns ; CX_D[1]  ; SEG_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.685 ns ; CX_D[4]  ; DOT_ADDRESS[4]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.688 ns ; CX_D[4]  ; LED[4]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.715 ns ; CX_D[0]  ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.719 ns ; CX_D[12] ; SEG_COM[4]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.727 ns ; CX_D[13] ; SEG_COM[5]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.733 ns ; CX_D[1]  ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.738 ns ; CX_D[0]  ; PUSH_SCAN[0]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.739 ns ; CX_D[0]  ; LED[0]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.764 ns ; CX_D[2]  ; SEG_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.776 ns ; CX_D[4]  ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.839 ns ; CX_D[3]  ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.870 ns ; CX_D[7]  ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.920 ns ; CX_D[11] ; SEG_COM[3]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.933 ns ; CX_D[2]  ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.974 ns ; CX_D[7]  ; LED[7]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.987 ns ; CX_D[5]  ; DOT_ADDRESS[5]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -0.988 ns ; CX_D[5]  ; LED[5]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.017 ns ; CX_D[7]  ; SEG_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.077 ns ; CX_D[8]  ; SEG_COM[0]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.246 ns ; CX_D[8]  ; DOT_ADDRESS[8]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.344 ns ; CX_D[7]  ; DOT_ADDRESS[7]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.394 ns ; CX_D[2]  ; PUSH_SCAN[2]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.396 ns ; CX_D[6]  ; LED[6]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.449 ns ; CX_D[1]  ; PUSH_SCAN[1]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.449 ns ; CX_D[1]  ; LED[1]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.493 ns ; CX_D[10] ; LCD_E~reg0          ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.493 ns ; CX_D[10] ; SEG_COM[2]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.548 ns ; CX_D[6]  ; DOT_ADDRESS[6]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.549 ns ; CX_D[3]  ; PUSH_SCAN[3]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.563 ns ; CX_D[2]  ; DOT_ADDRESS[2]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.564 ns ; CX_D[2]  ; LED[2]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -1.812 ns ; CX_D[3]  ; SEG_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.303 ns ; CX_D[3]  ; LED[3]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.303 ns ; CX_D[3]  ; DOT_ADDRESS[3]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.581 ns ; CX_A[22] ; SEG_COM[1]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.581 ns ; CX_A[22] ; SEG_COM[3]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.581 ns ; CX_A[22] ; SEG_COM[4]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.581 ns ; CX_A[22] ; SEG_COM[5]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.930 ns ; CX_A[20] ; A~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.930 ns ; CX_A[20] ; B~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.930 ns ; CX_A[20] ; Abar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -2.930 ns ; CX_A[20] ; Bbar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.028 ns ; CX_A[21] ; SEG_COM[1]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.028 ns ; CX_A[21] ; SEG_COM[3]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.028 ns ; CX_A[21] ; SEG_COM[4]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.028 ns ; CX_A[21] ; SEG_COM[5]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.053 ns ; CX_A[21] ; A~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.053 ns ; CX_A[21] ; B~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.053 ns ; CX_A[21] ; Abar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.053 ns ; CX_A[21] ; Bbar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.143 ns ; CX_A[23] ; A~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.143 ns ; CX_A[23] ; B~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.143 ns ; CX_A[23] ; Abar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.143 ns ; CX_A[23] ; Bbar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.297 ns ; CX_A[22] ; A~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.297 ns ; CX_A[22] ; B~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.297 ns ; CX_A[22] ; Abar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.297 ns ; CX_A[22] ; Bbar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.352 ns ; CX_A[22] ; SEG_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.352 ns ; CX_A[22] ; SEG_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.352 ns ; CX_A[22] ; SEG_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.532 ns ; CX_A[20] ; PUSH_SCAN[0]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.532 ns ; CX_A[20] ; PUSH_SCAN[1]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.532 ns ; CX_A[20] ; PUSH_SCAN[2]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.532 ns ; CX_A[20] ; PUSH_SCAN[3]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.532 ns ; CX_A[20] ; LED[0]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.532 ns ; CX_A[20] ; LED[1]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.627 ns ; CX_A[20] ; SEG_COM[1]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.627 ns ; CX_A[20] ; SEG_COM[3]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.627 ns ; CX_A[20] ; SEG_COM[4]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.627 ns ; CX_A[20] ; SEG_COM[5]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.656 ns ; CX_A[20] ; DOT_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.656 ns ; CX_A[20] ; DOT_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.656 ns ; CX_A[20] ; DOT_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.656 ns ; CX_A[20] ; DOT_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.656 ns ; CX_A[20] ; DOT_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.656 ns ; CX_A[20] ; DOT_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.656 ns ; CX_A[20] ; DOT_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.782 ns ; CX_A[21] ; DOT_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.782 ns ; CX_A[21] ; DOT_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.782 ns ; CX_A[21] ; DOT_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.782 ns ; CX_A[21] ; DOT_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.782 ns ; CX_A[21] ; DOT_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.782 ns ; CX_A[21] ; DOT_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.782 ns ; CX_A[21] ; DOT_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.799 ns ; CX_A[21] ; SEG_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.799 ns ; CX_A[21] ; SEG_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.799 ns ; CX_A[21] ; SEG_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.859 ns ; CX_A[21] ; LED[0]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.859 ns ; CX_A[21] ; LED[1]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.862 ns ; CX_A[21] ; PUSH_SCAN[0]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.862 ns ; CX_A[21] ; PUSH_SCAN[1]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.862 ns ; CX_A[21] ; PUSH_SCAN[2]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.862 ns ; CX_A[21] ; PUSH_SCAN[3]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.874 ns ; CX_A[23] ; DOT_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.874 ns ; CX_A[23] ; DOT_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.874 ns ; CX_A[23] ; DOT_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.874 ns ; CX_A[23] ; DOT_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.874 ns ; CX_A[23] ; DOT_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.874 ns ; CX_A[23] ; DOT_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -3.874 ns ; CX_A[23] ; DOT_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.017 ns ; nPX_CS5  ; SEG_COM[1]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.017 ns ; nPX_CS5  ; SEG_COM[3]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.017 ns ; nPX_CS5  ; SEG_COM[4]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.017 ns ; nPX_CS5  ; SEG_COM[5]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.025 ns ; CX_A[23] ; SEG_COM[1]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.025 ns ; CX_A[23] ; SEG_COM[3]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.025 ns ; CX_A[23] ; SEG_COM[4]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.025 ns ; CX_A[23] ; SEG_COM[5]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.028 ns ; CX_A[22] ; DOT_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.028 ns ; CX_A[22] ; DOT_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.028 ns ; CX_A[22] ; DOT_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.028 ns ; CX_A[22] ; DOT_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.028 ns ; CX_A[22] ; DOT_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.028 ns ; CX_A[22] ; DOT_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.028 ns ; CX_A[22] ; DOT_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.218 ns ; CX_A[22] ; SEG_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.218 ns ; CX_A[22] ; SEG_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.218 ns ; CX_A[22] ; SEG_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.218 ns ; CX_A[22] ; SEG_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.218 ns ; CX_A[22] ; SEG_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.218 ns ; CX_A[22] ; SEG_COM[0]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.218 ns ; CX_A[22] ; SEG_COM[2]~reg0     ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.282 ns ; CX_A[20] ; LED[2]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.282 ns ; CX_A[20] ; LED[3]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.282 ns ; CX_A[20] ; LED[4]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.282 ns ; CX_A[20] ; LED[5]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.282 ns ; CX_A[20] ; LED[6]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.282 ns ; CX_A[20] ; LED[7]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.323 ns ; CX_A[22] ; LED[0]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.323 ns ; CX_A[22] ; LED[1]~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.326 ns ; CX_A[22] ; PUSH_SCAN[0]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.326 ns ; CX_A[22] ; PUSH_SCAN[1]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.326 ns ; CX_A[22] ; PUSH_SCAN[2]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.326 ns ; CX_A[22] ; PUSH_SCAN[3]~reg0   ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.334 ns ; CX_A[20] ; LCD_RS~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.334 ns ; CX_A[20] ; LCD_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.334 ns ; CX_A[20] ; LCD_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.334 ns ; CX_A[20] ; LCD_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.334 ns ; CX_A[20] ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.334 ns ; CX_A[20] ; LCD_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.334 ns ; CX_A[20] ; LCD_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.334 ns ; CX_A[20] ; LCD_RW~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.398 ns ; CX_A[20] ; SEG_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.398 ns ; CX_A[20] ; SEG_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.398 ns ; CX_A[20] ; SEG_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.450 ns ; CX_A[21] ; LCD_RS~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.450 ns ; CX_A[21] ; LCD_DATA[2]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.450 ns ; CX_A[21] ; LCD_DATA[3]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.450 ns ; CX_A[21] ; LCD_DATA[4]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.450 ns ; CX_A[21] ; LCD_DATA[5]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.450 ns ; CX_A[21] ; LCD_DATA[6]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.450 ns ; CX_A[21] ; LCD_DATA[7]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.450 ns ; CX_A[21] ; LCD_RW~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.451 ns ; CX_A[20] ; DOT_ADDRESS[9]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.469 ns ; nPX_CS5  ; A~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.469 ns ; nPX_CS5  ; B~reg0              ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.469 ns ; nPX_CS5  ; Abar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.469 ns ; nPX_CS5  ; Bbar~reg0           ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.487 ns ; CX_A[20] ; LCD_E~reg0          ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.487 ns ; CX_A[20] ; LCD_DATA[0]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.487 ns ; CX_A[20] ; LCD_DATA[1]~reg0    ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.492 ns ; CX_A[20] ; DOT_ADDRESS[0]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.492 ns ; CX_A[20] ; DOT_ADDRESS[1]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.492 ns ; CX_A[20] ; DOT_ADDRESS[6]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.492 ns ; CX_A[20] ; DOT_ADDRESS[7]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.492 ns ; CX_A[20] ; DOT_ADDRESS[8]~reg0 ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.541 ns ; CX_A[23] ; LCD_RS~reg0         ; nPX_PWE  ;
+; N/A                                     ; None                                                ; -4.541 ns ; CX_A[23] ; LCD_DATA[2]~reg0    ; nPX_PWE  ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;          ;                     ;          ;
++-----------------------------------------+-----------------------------------------------------+-----------+----------+---------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 7.1 Build 178 06/25/2007 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Jul 30 14:41:40 2007
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off AddrDecoder -c AddrDecoder --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "nPX_PWE" is an undefined clock
+Info: Clock "nPX_PWE" Internal fmax is restricted to 275.03 MHz between source register "LCD_RS~reg0" and destination register "LCD_DATA[5]~reg0"
+    Info: fmax restricted to Clock High delay (1.818 ns) plus Clock Low delay (1.818 ns) : restricted to 3.636 ns. Expand message to see actual delay path.
+        Info: + Longest register to register delay is 1.128 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X6_Y20_N5; Fanout = 2; REG Node = 'LCD_RS~reg0'
+            Info: 2: + IC(0.523 ns) + CELL(0.114 ns) = 0.637 ns; Loc. = LC_X6_Y20_N8; Fanout = 1; COMB Node = 'LCD_DATA[5]~434'
+            Info: 3: + IC(0.182 ns) + CELL(0.309 ns) = 1.128 ns; Loc. = LC_X6_Y20_N9; Fanout = 1; REG Node = 'LCD_DATA[5]~reg0'
+            Info: Total cell delay = 0.423 ns ( 37.50 % )
+            Info: Total interconnect delay = 0.705 ns ( 62.50 % )
+        Info: - Smallest clock skew is 0.000 ns
+            Info: + Shortest clock path from clock "nPX_PWE" to destination register is 7.779 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_60; Fanout = 59; CLK Node = 'nPX_PWE'
+                Info: 2: + IC(5.599 ns) + CELL(0.711 ns) = 7.779 ns; Loc. = LC_X6_Y20_N9; Fanout = 1; REG Node = 'LCD_DATA[5]~reg0'
+                Info: Total cell delay = 2.180 ns ( 28.02 % )
+                Info: Total interconnect delay = 5.599 ns ( 71.98 % )
+            Info: - Longest clock path from clock "nPX_PWE" to source register is 7.779 ns
+                Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_60; Fanout = 59; CLK Node = 'nPX_PWE'
+                Info: 2: + IC(5.599 ns) + CELL(0.711 ns) = 7.779 ns; Loc. = LC_X6_Y20_N5; Fanout = 2; REG Node = 'LCD_RS~reg0'
+                Info: Total cell delay = 2.180 ns ( 28.02 % )
+                Info: Total interconnect delay = 5.599 ns ( 71.98 % )
+        Info: + Micro clock to output delay of source is 0.224 ns
+        Info: + Micro setup delay of destination is 0.037 ns
+Info: tsu for register "DOT_ADDRESS[2]~reg0" (data pin = "nPX_CS5", clock pin = "nPX_PWE") is 6.822 ns
+    Info: + Longest pin to register delay is 14.573 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_59; Fanout = 5; PIN Node = 'nPX_CS5'
+        Info: 2: + IC(8.290 ns) + CELL(0.590 ns) = 10.349 ns; Loc. = LC_X12_Y18_N0; Fanout = 4; COMB Node = 'Equal0~194'
+        Info: 3: + IC(0.466 ns) + CELL(0.114 ns) = 10.929 ns; Loc. = LC_X12_Y18_N3; Fanout = 10; COMB Node = 'Equal0~198'
+        Info: 4: + IC(2.777 ns) + CELL(0.867 ns) = 14.573 ns; Loc. = LC_X21_Y19_N3; Fanout = 1; REG Node = 'DOT_ADDRESS[2]~reg0'
+        Info: Total cell delay = 3.040 ns ( 20.86 % )
+        Info: Total interconnect delay = 11.533 ns ( 79.14 % )
+    Info: + Micro setup delay of destination is 0.037 ns
+    Info: - Shortest clock path from clock "nPX_PWE" to destination register is 7.788 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_60; Fanout = 59; CLK Node = 'nPX_PWE'
+        Info: 2: + IC(5.608 ns) + CELL(0.711 ns) = 7.788 ns; Loc. = LC_X21_Y19_N3; Fanout = 1; REG Node = 'DOT_ADDRESS[2]~reg0'
+        Info: Total cell delay = 2.180 ns ( 27.99 % )
+        Info: Total interconnect delay = 5.608 ns ( 72.01 % )
+Info: tco from clock "nPX_PWE" to destination pin "Bbar" through register "Bbar~reg0" is 15.334 ns
+    Info: + Longest clock path from clock "nPX_PWE" to source register is 7.779 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_60; Fanout = 59; CLK Node = 'nPX_PWE'
+        Info: 2: + IC(5.599 ns) + CELL(0.711 ns) = 7.779 ns; Loc. = LC_X12_Y18_N9; Fanout = 1; REG Node = 'Bbar~reg0'
+        Info: Total cell delay = 2.180 ns ( 28.02 % )
+        Info: Total interconnect delay = 5.599 ns ( 71.98 % )
+    Info: + Micro clock to output delay of source is 0.224 ns
+    Info: + Longest register to pin delay is 7.331 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC_X12_Y18_N9; Fanout = 1; REG Node = 'Bbar~reg0'
+        Info: 2: + IC(5.223 ns) + CELL(2.108 ns) = 7.331 ns; Loc. = PIN_115; Fanout = 0; PIN Node = 'Bbar'
+        Info: Total cell delay = 2.108 ns ( 28.75 % )
+        Info: Total interconnect delay = 5.223 ns ( 71.25 % )
+Info: Longest tpd from source pin "nPX_CS5" to destination pin "CX_D[4]" is 18.022 ns
+    Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_59; Fanout = 5; PIN Node = 'nPX_CS5'
+    Info: 2: + IC(7.877 ns) + CELL(0.442 ns) = 9.788 ns; Loc. = LC_X13_Y18_N0; Fanout = 10; COMB Node = 'CX_D[15]~364'
+    Info: 3: + IC(2.430 ns) + CELL(0.442 ns) = 12.660 ns; Loc. = LC_X20_Y16_N9; Fanout = 1; COMB Node = 'CX_D[4]~379'
+    Info: 4: + IC(3.238 ns) + CELL(2.124 ns) = 18.022 ns; Loc. = PIN_11; Fanout = 0; PIN Node = 'CX_D[4]'
+    Info: Total cell delay = 4.477 ns ( 24.84 % )
+    Info: Total interconnect delay = 13.545 ns ( 75.16 % )
+Info: th for register "LCD_DATA[6]~reg0" (data pin = "CX_D[6]", clock pin = "nPX_PWE") is 0.423 ns
+    Info: + Longest clock path from clock "nPX_PWE" to destination register is 7.779 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = PIN_60; Fanout = 59; CLK Node = 'nPX_PWE'
+        Info: 2: + IC(5.599 ns) + CELL(0.711 ns) = 7.779 ns; Loc. = LC_X6_Y20_N0; Fanout = 1; REG Node = 'LCD_DATA[6]~reg0'
+        Info: Total cell delay = 2.180 ns ( 28.02 % )
+        Info: Total interconnect delay = 5.599 ns ( 71.98 % )
+    Info: + Micro hold delay of destination is 0.015 ns
+    Info: - Shortest pin to register delay is 7.371 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = PIN_15; Fanout = 1; PIN Node = 'CX_D[6]'
+        Info: 2: + IC(0.000 ns) + CELL(1.469 ns) = 1.469 ns; Loc. = IOC_X0_Y16_N1; Fanout = 6; COMB Node = 'CX_D[6]~37'
+        Info: 3: + IC(5.787 ns) + CELL(0.115 ns) = 7.371 ns; Loc. = LC_X6_Y20_N0; Fanout = 1; REG Node = 'LCD_DATA[6]~reg0'
+        Info: Total cell delay = 1.584 ns ( 21.49 % )
+        Info: Total interconnect delay = 5.787 ns ( 78.51 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Allocated 107 megabytes of memory during processing
+    Info: Processing ended: Mon Jul 30 14:41:41 2007
+    Info: Elapsed time: 00:00:01
+
+
