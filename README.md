@@ -1,7 +1,7 @@
 # FPGA_XILINIX
 __Overview__
 ```
-This project implements aorting algorithm on "Xilinx Spartan6 FPGA (XC6SLX9-2TQG144C)" FPGA.
+This project implements bubble sorting algorithm on "Xilinx Spartan6 FPGA (XC6SLX9-2TQG144C)" FPGA.
 ```
 
 __Installation Guide__
